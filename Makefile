@@ -1,5 +1,5 @@
 all:
-	g++ main.cpp Projeto.h matriz.cpp -o projeto	
+	g++ main.cpp Fila.h Fila.cpp arvore.h arvore.cpp –o projeto
 run:
 	./projeto
 clean:
