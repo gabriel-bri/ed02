@@ -1,11 +1,15 @@
 #include "Fila.h"
-Fila::Fila(int* v, int tam) {
+
+//O(tam)
+Fila::Fila(int* v, int tam) { // cria uma Fila com base em um vetor de inteiros e seu tamanho
     fst = lst = nullptr;
     for(int i = 0; i < tam; i++) {
         insert(*(v+i));
     }
 }
-Fila::~Fila() {
+
+//O(n)
+Fila::~Fila() { // esvazia a Fila
     while(!empty()) {
         NodeF *lixo = fst;
         fst = fst->next;
@@ -13,10 +17,14 @@ Fila::~Fila() {
     }
     lst = nullptr;
 }
-bool Fila::empty() {
+
+//O(1)
+bool Fila::empty() { // testa se a Fila está vazia
     return fst == nullptr;
 }
-void Fila::insert(int key) {
+
+//O(1)
+void Fila::insert(int key) { // insere um valor ao final da Fila
     NodeF *no = new NodeF(key);
     if(empty()) 
         fst = lst = no;
@@ -25,7 +33,9 @@ void Fila::insert(int key) {
         lst = no;
     }
 }
-void Fila::remove() {
+
+//O(1)
+void Fila::remove() { // remove o valor no ínicio da Fila
     if(empty())
         return;
     NodeF *no = fst;
@@ -34,7 +44,9 @@ void Fila::remove() {
     if(empty()) 
         lst = nullptr;
 }
-int Fila::getFst() {
+
+//O(1)
+int Fila::getFst() { // acessa o valor no ínicio da Fila
     if(empty())
         return 0;
     return fst->key;
